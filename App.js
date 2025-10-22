@@ -1,20 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+  Button,
+  View,
+  Image,
+  SafeAreaView,
+  StatusBar,
+  Platform,
+  Text,
+  TextInput,
+  Switch,
+} from "react-native";
+import React, { useEffect, useState } from "react";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+
+import ImageInput from "./app/components/ImageInput";
+import Screen from "./app/components/Screen";
+import ImageInputList from "./app/components/ImageInputList";
+import ListItem from "./app/components/ListItem";
+import ListingEditScreen from "./app/screens/ListingEditScreen";
+import RegisterScreen from "./app/screens/RegisterScreen";
+import LoginScreen from "./app/screens/LoginScreen";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <GestureHandlerRootView>
+      <Screen>
+        <ListingEditScreen />
+        {/* <LoginScreen /> */}
+        {/* <RegisterScreen /> */}
+      </Screen>
+    </GestureHandlerRootView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
