@@ -39,8 +39,8 @@ export default function ListingScreen() {
 }
 
 const styles = StyleSheet.create({
-    screen: {
-        // padding: 20,
-        backgroundColor: colors.light,
-    }
+  screen: {
+    // padding: 20,
+    backgroundColor: colors.light,
+  },
 });
