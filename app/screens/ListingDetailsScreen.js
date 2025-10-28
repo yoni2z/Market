@@ -6,14 +6,16 @@ import AppText from "../components/AppText";
 
 import colors from "../config/colors";
 
-export default function ListingDetailsScreen({ title, price, image }) {
+export default function ListingDetailsScreen({ route }) {
+  const listing = route.params;
+
   return (
     <View style={styles.listDetails}>
-      <Image style={styles.image} source={require("../assets/ps4_2.jpg")} />
+      <Image style={styles.image} source={listing.image} />
       <View style={styles.detailsContainer}>
         <View style={styles.listText}>
-          <AppText style={styles.title}>{title}</AppText>
-          <AppText style={styles.price}>{price}</AppText>
+          <AppText style={styles.title}>{listing.title}</AppText>
+          <AppText style={styles.price}>{listing.price}</AppText>
         </View>
         <View style={styles.container}>
           <ListItem
