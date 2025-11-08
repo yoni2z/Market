@@ -3,6 +3,7 @@ import React from "react";
 import * as Yup from "yup";
 
 import Screen from "../components/Screen";
+import listingApi from "../api/listings";
 
 import {
   AppForm,
@@ -52,9 +53,15 @@ const categories = [
 export default function ListingEditScreen() {
   const location = useLocation();
 
-  const handleSumbit = (values) => {
-    const listingData = { ...values, location };
-    console.log("Submitting listing", listingData);
+  const handleSumbit = async (listings) => {
+    const result = await listingApi.addListing({ ...listings, location });
+    // console.log("RESULT:", result);
+
+    if (!result.ok) {
+      // alert("Error: " + result.problem);
+      return alert("Could not save the listing");
+    }
+    alert("Success");
   };
 
   return (
